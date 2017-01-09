@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myUrlStringInput: String = "http://api.wunderground.com/api/Your_Key/conditions/q/CA/San_Francisco.json"
+        let myUrlStringInput: String = "http://api.wunderground.com/api/4f16fc1990d1c023/forecast/geolookup/conditions/q/CA/San_Francisco.json"
         print("myJSON inputURL: \(myUrlStringInput)")
         
         if let nsurlStringInput = URL(string: myUrlStringInput)
