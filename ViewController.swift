@@ -20,18 +20,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let myUrlStringInput: String = "http://api.wunderground.com/api/Your_Key/conditions/q/CA/San_Francisco.json"
-        //print("myJSON inputURL: \(inputURL)")
+        print("myJSON inputURL: \(myUrlStringInput)")
         
         if let nsurlStringInput = URL(string: myUrlStringInput)
         { // We have to convert to NSURL because contentsOfUrl takes NSURL as a paramater.
-            //print("NSURL string input: \(nsurlStringInput)")
+            print("NSURL string input: \(nsurlStringInput)")
             
             if let websiteNSData = try? Data(contentsOf: nsurlStringInput, options: [])
             { // We have to convert it to NSData because swiftyJSON's type JSON uses NSData as a paramter.
-                //print("Website's NSDATA: \(websiteNSData)")
+                print("Website's NSDATA: \(websiteNSData)")
                 
                 let websiteJSONData = JSON(data: websiteNSData)
-                //print("Website JSON Data: \(websiteJSONData)")
+                print("Website JSON Data: \(websiteJSONData)")
                 
 //                for article in websiteJSONData[0].arrayValue
 //                {
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 //                    
 //                }
               
-                print(websiteJSONData["weather"])
+                //print(websiteJSONData["weather"])
             }
         }
         
