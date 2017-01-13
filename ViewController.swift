@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         }
         
         weatherLabel.text = objects[0]["weather"]
-        tempLabel.text = objects[0]["weather"]
+        tempLabel.text = objects[0]["temp"]
     }
 
     override func didReceiveMemoryWarning() {
