@@ -14,8 +14,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var weatherLabel: UILabel!
     
+    @IBOutlet weak var tempLabel: UILabel!
+    
     // TODO: ASK CODY IF I SHOULD ACCESS THE API/JSON SERVICE AS A SINGLETON? - OR OTHER WAY? CLEANEST?
   
+    // dont need 2d array because for dailyread, each article had unique title, text etc, but here I can just do one temp, one condition, one logo etc. 
     var objects: [[String: String]] = []
     
     override func viewDidLoad() {
@@ -33,27 +36,24 @@ class ViewController: UIViewController {
                 //print("Website's NSDATA: \(websiteNSData)")
                 
                 let websiteJSONData = JSON(data: websiteNSData)
-                print("Website JSON Data: \(websiteJSONData["current_observation"])")
+                //print("Website JSON Data: \(websiteJSONData["current_observation"].dictionaryValue)")
                 
-                for article in websiteJSONData["current_observation"].arrayValue
-                {
-                    let weather = article["observation_location"]["weather"].stringValue
-                  
-                    let obj = ["weather": weather]
-                    
-                    //print("obj in myJSON are  \(objects)")
-                    //change newstables variable from here? PUT FOR LOOP IN INIT METHOD OF THIS CLASS?
-                    print(obj)
-                    
+                let weather = websiteJSONData["current_observation"]["weather"].stringValue
+                let temp = websiteJSONData["current_observation"]["temp_f"].stringValue
+
+                let obj = ["weather": weather, "temp": temp]
+                
+
                     self.objects.append(obj)
-                    print(objects)
-                }
+                    print("objects: \(objects)")
+//                }
               
                 //print(websiteJSONData["weather"])
             }
         }
         
-       // weatherLabel.text = objects["weather"]
+        weatherLabel.text = objects[0]["weather"]
+        tempLabel.text = objects[0]["weather"]
     }
 
     override func didReceiveMemoryWarning() {
