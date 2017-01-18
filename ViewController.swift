@@ -40,8 +40,10 @@ class ViewController: UIViewController {
                 
                 let weather = websiteJSONData["current_observation"]["weather"].stringValue
                 let temp = websiteJSONData["current_observation"]["temp_f"].stringValue
+                let icon = websiteJSONData["current_observation"]["icon"].stringValue
 
-                let obj = ["weather": weather, "temp": temp]
+
+                let obj = ["weather": weather, "temp": temp, "icon": icon]
                 
 
                     self.objects.append(obj)
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
         
         weatherLabel.text = objects[0]["weather"]
         tempLabel.text = objects[0]["temp"]
+        // image.image.view = onjects[0]["icon"]
     }
 
     override func didReceiveMemoryWarning() {

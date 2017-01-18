@@ -42,8 +42,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CLOUD" translatesAutoresizingMaskIntoConstraints="NO" id="ovS-hu-akA">
+                                <rect key="frame" x="140" y="264" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.31082574696823406" green="1" blue="0.95709243219074636" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="tempLabel" destination="rIC-2m-yX7" id="ass-EP-Cj8"/>
@@ -55,4 +59,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CLOUD" width="512" height="512"/>
+    </resources>
 </document>
