@@ -19,9 +19,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     // TODO: this is the endpoint for the autocomplete for the search bar : http://autocomplete.wunderground.com/aq?query=query
     // TODO: ASK CODY IF I SHOULD ACCESS THE API/JSON SERVICE AS A SINGLETON? - OR OTHER WAY? CLEANEST?
-    // TODO: switch to one of wunderground's iconsets -it's easier. I like set # 11, #10, & #9.
+    // TODO: switch to one of wunderground's iconsets -it's easier. I like set #11, #10, & #9.
     // TODO: UISearchBar delegate methods
     
+    // I like the fact that you have a TODO for what you want to accomplish each day.
     // dont need 2d array because for dailyread, each article had unique title, text etc, but here I can just do one temp, one condition, one logo etc. could use 2d array though if storing multiple cities.
     
     // Switch to guards instead of iflets?
@@ -54,13 +55,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
                 let icon = websiteJSONData["current_observation"]["icon"].stringValue
                 let location = websiteJSONData["current_observation"]["display_location"]["full"].stringValue
 
-
                 let obj = ["weather": weather, "temp": temp, "icon": icon, "location": location]
-            
-                
                 self.objects.append(obj)
-          
-
             }
         }
         
