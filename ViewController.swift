@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 
-class ViewController: UIViewController, UISearchBarDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
@@ -28,43 +28,41 @@ class ViewController: UIViewController, UISearchBarDelegate {
     // Switch to guards instead of iflets?
     var objects: [[String: String]] = []
     
-    @IBOutlet weak var locationSearchBar: UISearchBar!
-    
 
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
-    {
-        
-        
-        let searchBarText = searchBar.text
-        // TODO: make an API call, but with the autocomplete REST endpoint instead.
-        let myUrlStringInput: String = "http://autocomplete.wunderground.com/aq?query=" + searchBarText!
-        
-        if let nsurlStringInput = URL(string: myUrlStringInput)
-        { // We have to convert to NSURL because contentsOfUrl takes NSURL as a paramater.
-            
-            if let websiteNSData = try? Data(contentsOf: nsurlStringInput, options: [])
-            { // We have to convert it to NSData because swiftyJSON's type JSON uses NSData as a paramter.
-                
-                let websiteJSONData = JSON(data: websiteNSData)
-                
-                let results = websiteJSONData["RESULTS"][0]
-                
-                print(results)
-                //searchBar.set
-                
-            }
-            
-        }
-        
-    }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+//    {
+//        
+//        
+//        let searchBarText = searchBar.text
+//        // TODO: make an API call, but with the autocomplete REST endpoint instead.
+//        let myUrlStringInput: String = "http://autocomplete.wunderground.com/aq?query=" + searchBarText!
+//        
+//        if let nsurlStringInput = URL(string: myUrlStringInput)
+//        { // We have to convert to NSURL because contentsOfUrl takes NSURL as a paramater.
+//            
+//            if let websiteNSData = try? Data(contentsOf: nsurlStringInput, options: [])
+//            { // We have to convert it to NSData because swiftyJSON's type JSON uses NSData as a paramter.
+//                
+//                let websiteJSONData = JSON(data: websiteNSData)
+//                
+//                let results = websiteJSONData["RESULTS"][0]
+//                
+//                print(results)
+//                //searchBar.set
+//                
+//            }
+//            
+//        }
+//        
+//    }
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        locationSearchBar.placeholder = "Location"
-        locationSearchBar.barStyle = UIBarStyle.black
+//        locationSearchBar.placeholder = "Location"
+//        locationSearchBar.barStyle = UIBarStyle.black
         
         
         let myUrlStringInput: String = "http://api.wunderground.com/api/4f16fc1990d1c023/forecast/geolookup/conditions/q/CA/San_Francisco.json"
