@@ -12,7 +12,7 @@ import UIKit
 class LocationSearchController : UITableViewController, UISearchBarDelegate
 {
     
-    var results : [[String : String]] = [[:]]
+    var results : [[String : String]] = []
     @IBOutlet weak var locationSearchBar: UISearchBar!
     override func viewDidLoad()
     {
@@ -25,7 +25,7 @@ class LocationSearchController : UITableViewController, UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
-        
+        print("srch btn click")
         
         let searchBarText = locationSearchBar.text
         // TODO: make an API call, but with the autocomplete REST endpoint instead.
@@ -39,10 +39,23 @@ class LocationSearchController : UITableViewController, UISearchBarDelegate
                 
                 let websiteJSONData = JSON(data: websiteNSData)
                 
-                var results = websiteJSONData["RESULTS"]
+                let resultCount = websiteJSONData["RESULTS"].count
+                for i in 0..<resultCount
+                {
+                    let name = websiteJSONData["RESULTS"][i]["name"].stringValue
+                    let country = websiteJSONData["RESULTS"][i]["c"].stringValue
+                    let zmw = websiteJSONData["RESULTS"][i]["zmw"].stringValue
+                    
+                    let result = ["name": name, "country" : country, "zmw": zmw]
+                    
+                    self.results.append(result)
+
+                }
                 
-//                print(results)
-                //searchBar.set
+                
+                
+                
+                
                 self.tableView.reloadData()
                 
             }
@@ -52,27 +65,35 @@ class LocationSearchController : UITableViewController, UISearchBarDelegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return results.count
-        //return 2
+
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO: if there is no image received let cell = another cell class (as! otherCell) so that it loads a view without an image, with title and description scaled accordingly. xib files?
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        //let objects = results[indexPath.row]
-        // print("objecT: \(object)")
         
     
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
  
-    
-        
-        print(results)
-
         cell.textLabel?.text = results[indexPath.row]["name"]
         cell.detailTextLabel?.text = results[indexPath.row]["name"]
-
-        //cell.accessoryType = UITableViewCellAccessoryType.none
+        
+        
         
         return cell
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "toWeather"
+        {
+            let city = results[0]["zmw"]! + ".json"
+            if let destination = segue.destination as? ViewController
+            {
+                destination.newLocation = city
+            }
+        }
         
     }
 }
