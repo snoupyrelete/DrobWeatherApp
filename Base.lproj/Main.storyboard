@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0Q-eR-T9r">
-                                <rect key="frame" x="58" y="177" width="163" height="21"/>
+                                <rect key="frame" x="58" y="133" width="163" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="xVz-G3-VIQ"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNd-SJ-JJ2">
-                                <rect key="frame" x="58" y="133" width="259" height="21"/>
+                                <rect key="frame" x="58" y="89" width="259" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1PG-FG-5eL"/>
                                 </constraints>
@@ -41,10 +41,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CLOUD" translatesAutoresizingMaskIntoConstraints="NO" id="ovS-hu-akA">
-                                <rect key="frame" x="145" y="279" width="64" height="70"/>
+                                <rect key="frame" x="145" y="235" width="64" height="114"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIC-2m-yX7">
-                                <rect key="frame" x="58" y="219" width="186" height="21"/>
+                                <rect key="frame" x="58" y="175" width="186" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="MBG-XA-i5o"/>
                                 </constraints>
@@ -102,15 +102,15 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Cvq-rz-Seu" rowHeight="75" style="IBUITableViewCellStyleDefault" id="AhD-43-Rwa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Cvq-rz-Seu" rowHeight="75" style="IBUITableViewCellStyleDefault" id="AhD-43-Rwa">
                                 <rect key="frame" x="0.0" y="72" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AhD-43-Rwa" id="aWE-Mo-0Ii">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cvq-rz-Seu">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="74"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -119,7 +119,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toWeather" action="showViewController:sender:" id="QCw-lL-Wzm"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toWeather" id="QCw-lL-Wzm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

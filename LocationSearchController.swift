@@ -19,8 +19,6 @@ class LocationSearchController : UITableViewController, UISearchBarDelegate
         super.viewDidLoad()
         
         locationSearchBar.delegate = self
-        
-       // results = [["a":"b"]]
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
